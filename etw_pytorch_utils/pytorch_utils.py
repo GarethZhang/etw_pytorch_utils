@@ -113,9 +113,9 @@ class _ConvBase(nn.Sequential):
 
         if bn:
             if not preact:
-                bn_unit = norm_layer(out_size)
+                bn_unit = norm_layer(out_size, momentum=0.1, track_running_stats=False)
             else:
-                bn_unit = norm_layer(in_size)
+                bn_unit = norm_layer(in_size, momentum=0.1, track_running_stats=False)
 
         if preact:
             if bn:
